@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Card from './components/Card';
+import data from './data.json';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+
+class App extends Component {
+  state = {
+      cards: data,
+      
+  }
+ 
+
+ 
+
+  renderCards = (array) => {
+    return this.state.cards.map(card => (
+      <section className='col s4 m3 l3' key={card.id} id={card.id}>
+        <Card
+          name={card.name} 
+          image={card.image} 
+          reArrangeCards={() => {this.reArrangeCards(this.state.cards)}}
+          clickedCharacter={() => {this.clickedCharacter(card.id)}}/>
+      </section>
+      )
+    )
+  }
+
+
+  render() {
+    return (
+      <div className="container-fluid">
+       
+        <div className="container row cardWrapper">
+          {this.renderCards(this.state.cards)}
+        </div>
+      
+      </div>
+    );
+  }
 }
+
+
+
+
 
 export default App;

@@ -1,0 +1,11 @@
+html{
+    background-color: black;
+}
+
+body {
+	display: flex;
+	min-height: 90vh;
+	flex-direction: column;
+    position: relative;
+    font-family: 'Gloria Hallelujah', cursive;
+}
