@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from './components/Card';
+import Inst from './components/Inst';
 import data from './data.json';
 
 
@@ -31,8 +32,9 @@ class App extends Component {
 
   render() {
     return (
+      
       <div className="container-fluid">
-       
+       <Inst />
         <div className="container row cardWrapper">
           {this.renderCards(this.state.cards)}
         </div>
