@@ -2,28 +2,22 @@ import React, { Component } from 'react';
 import data from './data.json';
 import Card from './components/Card';
 import Inst from './components/Inst';
-import Navbar from './components/Navbar';
-import Message from './components/Message';
-
-
-
-
+import Header from './components/Header';
 
 
 class App extends Component {
   state = {
-      cards: data,
-      score: 0,
-      topScore: 0,
-      clickedCards: [],
-      messageText: "Mey Game",
-      color: "orangered",
-      bg: "black"
+    cards: data,
+    selectedTeams: [],
+    uScore: 0,
+    maxScore: 0,
+    messageText: "Memory Game",
+    class: "start"
   }
- 
+
 
   // Randomize array function from 'Fisher-Yates Shuffle'
-  reArrangeCards = (array) => {
+  randomCards = (array) => {
     let currentIndex = array.length;
 
     while (0 !== currentIndex) {
@@ -36,71 +30,77 @@ class App extends Component {
       array[randomIndex] = temporaryValue;
     }
 
-    this.setState({cards:data});
+    this.setState({ cards: data });
   }
 
-  renderCards = (array) => {
+  renderCards = () => {
     return this.state.cards.map(card => (
       <section className='col s4 m3 l3' key={card.id} id={card.id}>
         <Card
-          name={card.name} 
-          image={card.image} 
-          reArrangeCards={() => {this.reArrangeCards(this.state.cards)}}
-          clickedCharacter={() => {this.clickedCard(card.id)}}/>
+          name={card.name}
+          image={card.image}
+          randomize={() => { this.randomCards(this.state.cards) }}
+          selectedCard={() => { this.selected(card.id) }} />
       </section>
-      )
     )
+    )
+  }
+
+
+  selected = (id) => {
+    const [selector] = document.getElementsByTagName('body');
+
+    if (this.state.selectedTeams.includes(id)) {
+      this.setState({ uScore: 0, selectedTeams: [] })
+
+      selector.classList.add('shakeWrapper')
+      this.setState({ messageText: 'WRONG! Try Again', class: 'loose' })
+      setTimeout(() => {
+        selector.classList.remove('shakeWrapper');
+      }, 500);
+      setTimeout(() => {
+        this.setState({ messageText: "Memory Game", class: 'start' })
+      }, 2500)
+
+    } else {
+      this.setState({ selectedTeams: [...this.state.selectedTeams, id] })
+      this.setState({ uScore: this.state.uScore + 1 })
+      if (this.state.uScore >= this.state.maxScore) {
+        this.setState({ maxScore: this.state.uScore + 1 })
+
+      }
+      if (this.state.uScore === 11) {
+        this.setState({ messageText: 'You Won!!!', class: 'win' })
+
+        setTimeout(() => {
+          this.setState({ messageText: 'Memory Game', class: 'start' })
+          this.setState({ uScore: 0, selectedTeams: [], cards: data })
+        }, 2500)
+      }
+    }
   }
 
 
   render() {
     return (
-      
+
       <div className="container-fluid">
-        <Navbar message= {this.state.messageText} score={this.state.score} topScore={this.state.topScore}/>
-       <Inst />
+        <Inst />
+        <Header 
+        class={this.state.class} 
+        message={this.state.messageText} 
+        uScore={this.state.uScore} 
+        maxScore={this.state.maxScore} />
+        
         <div className="container row cardWrapper">
           {this.renderCards(this.state.cards)}
         </div>
-        <Message text={this.state.footerText}/>
+
       </div>
     );
   }
-  clickedCard = (id) => {
-    const [pageBody] = document.getElementsByTagName('body');
 
-    if (this.state.clickedCards.includes(id)) {
-      this.setState({score: 0, clickedCards: []})
-
-      pageBody.classList.add('shakeWrapper')
-      this.setState({footerText: 'You picked that already! Start Over.'})
-      setTimeout(() => {
-        pageBody.classList.remove('shakeWrapper');
-      }, 500);
-      setTimeout(() => {
-        this.setState({footerText: ""})
-      }, 1800)
-
-    } else {
-      this.setState({clickedCards: [...this.state.clickedCards, id]})
-      this.setState({score: this.state.score + 1})
-      if (this.state.score >= this.state.topScore) {
-        this.setState({topScore: this.state.score + 1})
-
-      } 
-      if (this.state.score === 11) {
-        this.setState({footerText: 'You Won! Play again?'})
-        this.setState({score: 0, clickedCards: [], cards: data})
-        setTimeout(() => {
-          this.setState({footerText: ''})
-        }, 1800)
-      } 
-    }
-  }
 }
-
-
-
 
 
 export default App;

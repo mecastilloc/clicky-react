@@ -2,8 +2,8 @@ import React from 'react';
 // import './ClickCard.css';
 
 function handleClick(props) {
-	props.reArrangeCards();
-	props.clickedCharacter(props.id);
+	props.randomize();
+	props.selectedCard(props.id);
 }
 
 
