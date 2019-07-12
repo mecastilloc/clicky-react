@@ -2,60 +2,60 @@
   {
     "id": 1,
     "name": "Arizona",
-    "image": "/images/arizona.png"
+    "image": "./images/arizona.png"
   },
   {
     "id": 2,
     "name": "Buffalo",
-    "image": "/images/buffalo.png"
+    "image": "./images/buffalo.png"
   },
   {
     "id": 3,
     "name": "Dallas",
-    "image": "/images/dallas.png"
+    "image": "./images/dallas.png"
   },
   {
     "id": 4,
     "name": "Detroit",
-    "image": "/images/detroit.png" 
+    "image": "./images/detroit.png" 
   },
   {
     "id": 5,
     "name": "Green Bay",
-    "image": "/images/gb.png" 
+    "image": "./images/gb.png" 
   },
   {
     "id": 6,
     "name": "Indianapolis",
-    "image": "/images/indy.png"  
+    "image": "./images/indy.png"  
   },
   {
     "id": 7,
     "name": "Los Angeles",
-    "image": "/images/larams.png"
+    "image": "./images/larams.png"
   },
   {
     "id": 8,
     "name": "miami",
-    "image": "/images/miami.png"
+    "image": "./images/miami.png"
    },
   {
     "id": 9,
     "name": "Oakland",
-    "image": "/images/oakland.png"},
+    "image": "./images/oakland.png"},
   {
     "id": 10,
     "name": "San Francisco",
-    "image": "/images/sf.png"
+    "image": "./images/sf.png"
    },
   {
     "id": 11,
     "name": "Tampa Bay",
-    "image": "/images/tampa.png"
+    "image": "./images/tampa.png"
    },
   {
     "id": 12,
     "name": "Tennessee",
-    "image": "/images/tenn.png"
+    "image": "./images/tenn.png"
   }
 ]
