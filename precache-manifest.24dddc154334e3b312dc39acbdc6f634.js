@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e23704b13fa46a697d39c16b4ac4c6aa",
+    "revision": "fbe01886f03d04d197dc3c11407464db",
     "url": "/clicky-react/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/clicky-react/static/js/2.1d9c299a.chunk.js"
   },
   {
-    "revision": "8d1d3cb995800a695d56",
-    "url": "/clicky-react/static/js/main.ffc946fe.chunk.js"
+    "revision": "c84b71b8c05b23bdb265",
+    "url": "/clicky-react/static/js/main.1e807f9b.chunk.js"
   },
   {
     "revision": "715effbbbe4788c7de9c",
