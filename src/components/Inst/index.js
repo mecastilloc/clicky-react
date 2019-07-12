@@ -1,9 +1,6 @@
 import React from 'react';
-// import './Modal.css';
 
-
-
-function Modal() {
+function Inst() {
 	return (
 		<div className="instructionsModal">
 			<div className="modal-content">
@@ -29,4 +26,4 @@ function Modal() {
 
 
 
-export default Modal;
+export default Inst;

@@ -5,51 +5,35 @@ html{
 body {
 	display: flex;
 	min-height: 90vh;
-	flex-direction: column;
-    position: relative;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
 .card {
     height: 120px;
-    background: rgb(220, 168, 108);
-    cursor: pointer;
-    transition: all .2s ease-in-out;
+    
     overflow: hidden;
-    padding: 10px;
+    
     text-align: center;
   }
   
-  .card:hover {
-      transform: scale(0.5);
-  }
   
   img {
-    width: 90%;
-    height: 90%;
+    
     margin-top: 5%
   }
 
   .instructionsModal {
-	width: 100%;
-	height: 100%;
+	
     z-index: 1;
     position: absolute;
     background: rgba(243, 154, 112, 0.75);
     color: black;
-    padding-top: 20vh;
+    
 }
 
-.instructionsModal ol {
-	width: 400px;
-	margin: auto;
-}
-.btn{
-    background-color: black;
-    border-color: green;
-    border-style: double;
-}
 
-.btn:hover{
-    background-color: green;
+
+nav{
+    color: orange;
+      background-color: rgba(0, 0, 0)
 }
