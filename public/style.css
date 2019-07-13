@@ -99,7 +99,7 @@ img {
     animation: dance 0.5s;
     -webkit-animation: dance 0.5s;
 }
-
+/* Copied from a tutorial  */
 @keyframes dance {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
